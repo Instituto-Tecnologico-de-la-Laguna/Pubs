@@ -13,6 +13,7 @@ namespace Pubs
     public partial class frmStoreUnico : Form
     {
         int id = 0;
+        bool bandera = false;
         public frmStoreUnico() //Insertar
         {
             InitializeComponent();
@@ -29,12 +30,44 @@ namespace Pubs
             txtCiudad.Text = ciudad;
             txtEstado.Text = estado;
             txtCP.Text = cp;
-            
+            bandera = true;
+
         }
 
         private void frmStoreUnico_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            Datos dt = new Datos();
+            if (bandera == true)
+            {
+                //Actualizar
+                string sql = "Update Stores set stor_name='" + txtNombre.Text 
+                    + "',stor_address='" + txtDireccion.Text +
+                    "',city='" + txtCiudad.Text +
+                    "',state='" + txtEstado.Text +
+                    "',zip='" + txtCP.Text +
+                    "' where stor_id=" + id;             
+                dt.EjecutarComando(sql); 
+                MessageBox.Show("Tienda Actualizada");
+                
+            }
+            else
+            {
+                //Insertar
+                string sql = "Insert into Stores(stor_name,stor_address," +
+                    "city,state,zip) " +
+                    "values('" + txtNombre.Text + "','" + txtDireccion.Text +
+                    "','" + txtCiudad.Text + "','" + txtEstado.Text +
+                    "','" + txtCP.Text + "')";               
+                dt.EjecutarComando(sql);
+                MessageBox.Show("Tienda Agregada");
+
+            }
+            this.Close();
         }
     }
 }

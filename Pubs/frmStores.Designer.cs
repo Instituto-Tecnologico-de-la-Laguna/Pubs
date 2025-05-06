@@ -77,19 +77,19 @@
             this.toolStripMenuActualizar,
             this.toolStripMenuEliminar});
             this.contextMenuStripsStore.Name = "contextMenuStripsStore";
-            this.contextMenuStripsStore.Size = new System.Drawing.Size(241, 101);
+            this.contextMenuStripsStore.Size = new System.Drawing.Size(161, 68);
             // 
             // toolStripMenuActualizar
             // 
             this.toolStripMenuActualizar.Name = "toolStripMenuActualizar";
-            this.toolStripMenuActualizar.Size = new System.Drawing.Size(240, 32);
+            this.toolStripMenuActualizar.Size = new System.Drawing.Size(160, 32);
             this.toolStripMenuActualizar.Text = "Actualizar";
             this.toolStripMenuActualizar.Click += new System.EventHandler(this.toolStripMenuActualizar_Click);
             // 
             // toolStripMenuEliminar
             // 
             this.toolStripMenuEliminar.Name = "toolStripMenuEliminar";
-            this.toolStripMenuEliminar.Size = new System.Drawing.Size(240, 32);
+            this.toolStripMenuEliminar.Size = new System.Drawing.Size(160, 32);
             this.toolStripMenuEliminar.Text = "Eliminar";
             // 
             // frmStores
@@ -102,6 +102,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmStores";
             this.Text = "Tiendas";
+            this.Activated += new System.EventHandler(this.frmStores_Activated);
             this.Load += new System.EventHandler(this.frmStores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTienda)).EndInit();
             this.contextMenuStripsStore.ResumeLayout(false);

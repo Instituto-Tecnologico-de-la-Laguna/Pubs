@@ -18,7 +18,7 @@ namespace Pubs
             InitializeComponent();
         }
 
-        private void frmStores_Load(object sender, EventArgs e)
+        private void Actualizar()
         {
             DataSet ds;
             ds = dt.comandoDS("Select stor_id as [No. Tienda], " +
@@ -26,9 +26,13 @@ namespace Pubs
                 "city as Ciudad, state as Estado,zip as [C.P.] " +
                 "from Stores");
             if (ds != null)
-            { 
+            {
                 dgvTienda.DataSource = ds.Tables[0];
             }
+        }
+        private void frmStores_Load(object sender, EventArgs e)
+        {
+            Actualizar();
 
         }
 
@@ -58,6 +62,11 @@ namespace Pubs
                 dgvTienda.Rows[i].Cells[4].Value.ToString(),
                 dgvTienda.Rows[i].Cells[5].Value.ToString());
             storeUnico.Show();
+        }
+
+        private void frmStores_Activated(object sender, EventArgs e)
+        {
+            Actualizar();
         }
     }
 }

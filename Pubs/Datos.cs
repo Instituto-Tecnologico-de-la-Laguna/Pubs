@@ -34,6 +34,24 @@ namespace Pubs
             catch (Exception ex) { Console.WriteLine(ex.ToString()); }
 
         }
+        public bool EjecutarComando(string cmd)
+        {
+            try
+            {
+                SqlCommand comando = new SqlCommand(cmd, abrirConexion());
+                comando.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+            finally
+            {
+               // cerrarConexion();
+            }
+        }
         public DataSet comandoDS(string cmd)
         { 
             DataSet ds = new DataSet();
