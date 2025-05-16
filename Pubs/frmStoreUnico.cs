@@ -25,6 +25,8 @@ namespace Pubs
         {
             InitializeComponent();
             this.id = id;
+            txtID.Text = id.ToString();
+            txtID.ReadOnly = true;
             txtNombre.Text = nombre;
             txtDireccion.Text = direccion;
             txtCiudad.Text = ciudad;
@@ -34,11 +36,7 @@ namespace Pubs
 
         }
 
-        private void frmStoreUnico_Load(object sender, EventArgs e)
-        {
-
-        }
-
+    
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             Datos dt = new Datos();
@@ -58,9 +56,10 @@ namespace Pubs
             else
             {
                 //Insertar
-                string sql = "Insert into Stores(stor_name,stor_address," +
+                string sql = "Insert into Stores(stor_id,stor_name,stor_address," +
                     "city,state,zip) " +
-                    "values('" + txtNombre.Text + "','" + txtDireccion.Text +
+                    "values('"+ txtID.Text + "'," +
+                    "'" + txtNombre.Text + "','" + txtDireccion.Text +
                     "','" + txtCiudad.Text + "','" + txtEstado.Text +
                     "','" + txtCP.Text + "')";               
                 dt.EjecutarComando(sql);

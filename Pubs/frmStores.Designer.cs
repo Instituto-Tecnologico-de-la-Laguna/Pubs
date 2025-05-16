@@ -35,6 +35,7 @@
             this.contextMenuStripsStore = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuActualizar = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuEliminar = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnInsertar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTienda)).BeginInit();
             this.contextMenuStripsStore.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +78,7 @@
             this.toolStripMenuActualizar,
             this.toolStripMenuEliminar});
             this.contextMenuStripsStore.Name = "contextMenuStripsStore";
-            this.contextMenuStripsStore.Size = new System.Drawing.Size(161, 68);
+            this.contextMenuStripsStore.Size = new System.Drawing.Size(241, 101);
             // 
             // toolStripMenuActualizar
             // 
@@ -89,14 +90,26 @@
             // toolStripMenuEliminar
             // 
             this.toolStripMenuEliminar.Name = "toolStripMenuEliminar";
-            this.toolStripMenuEliminar.Size = new System.Drawing.Size(160, 32);
+            this.toolStripMenuEliminar.Size = new System.Drawing.Size(240, 32);
             this.toolStripMenuEliminar.Text = "Eliminar";
+            this.toolStripMenuEliminar.Click += new System.EventHandler(this.toolStripMenuEliminar_Click);
+            // 
+            // btnInsertar
+            // 
+            this.btnInsertar.Location = new System.Drawing.Point(684, 12);
+            this.btnInsertar.Name = "btnInsertar";
+            this.btnInsertar.Size = new System.Drawing.Size(114, 37);
+            this.btnInsertar.TabIndex = 3;
+            this.btnInsertar.Text = "Agregar";
+            this.btnInsertar.UseVisualStyleBackColor = true;
+            this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
             // frmStores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnInsertar);
             this.Controls.Add(this.dgvTienda);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.label1);
@@ -119,5 +132,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStripsStore;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuEliminar;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuActualizar;
+        private System.Windows.Forms.Button btnInsertar;
     }
 }

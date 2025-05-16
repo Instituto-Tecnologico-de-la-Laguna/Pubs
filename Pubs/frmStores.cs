@@ -68,5 +68,17 @@ namespace Pubs
         {
             Actualizar();
         }
+
+        private void btnInsertar_Click(object sender, EventArgs e)
+        {
+            frmStoreUnico insertar = new frmStoreUnico();
+            insertar.Show();
+        }
+
+        private void toolStripMenuEliminar_Click(object sender, EventArgs e)
+        {
+            int i = dgvTienda.CurrentRow.Index;
+            DialogResult f= MessageBox.Show("¿Eliminar Tienda?"+ dgvTienda.Rows[i].Cells[0].Value, "Eliminar", MessageBoxButtons.YesNo);
+        }
     }
 }
