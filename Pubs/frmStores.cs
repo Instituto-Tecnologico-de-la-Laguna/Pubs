@@ -78,7 +78,25 @@ namespace Pubs
         private void toolStripMenuEliminar_Click(object sender, EventArgs e)
         {
             int i = dgvTienda.CurrentRow.Index;
-            DialogResult f= MessageBox.Show("¿Eliminar Tienda?"+ dgvTienda.Rows[i].Cells[0].Value, "Eliminar", MessageBoxButtons.YesNo);
+            DialogResult f = MessageBox.Show("¿Eliminar la Tienda: " 
+                + dgvTienda.Rows[i].Cells[1].Value +" ?", 
+                "Eliminar", MessageBoxButtons.YesNo);
+            if (f== DialogResult.Yes)
+            {
+                if (dt.EjecutarComando
+                    ("Delete from Stores where stor_id = " 
+                    + dgvTienda.Rows[i].Cells[0].Value) == true)
+                   MessageBox.Show("Tienda Eliminada",
+                       "Sistema",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                else
+                    MessageBox.Show
+                        ("Error al eliminar la tienda", 
+                        "Sistema", MessageBoxButtons.OK, 
+                        MessageBoxIcon.Error);
+                Actualizar();
+            }
         }
     }
 }
